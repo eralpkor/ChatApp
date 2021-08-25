@@ -3,7 +3,7 @@ import { StyleSheet, Image, FlatList } from 'react-native';
 
 // import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed'; // take cares Dark Mode.
-import ChatRoomItem from '../components/ChatRoomItem/';
+import ChatRoomItem from '../components/ChatRoomItem';
 import chatRoomData from '../assets/dummy-data/ChatRooms';
 
 export default function TabOneScreen() {
