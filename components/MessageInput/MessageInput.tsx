@@ -1,27 +1,51 @@
 // rnfe
-import React from 'react'
-import { StyleSheet, TextInput } from 'react-native';
+import React, { useState } from 'react'
+import { StyleSheet, TextInput, Pressable, KeyboardAvoidingView, Platform } from 'react-native';
 import { View, Text } from '../Themed';
 import { SimpleLineIcons, Feather, Ionicons, FontAwesome5 } from '@expo/vector-icons'; 
 
 const MessageInput = () => {
+  const [message, setMessage] = useState('');
+
+  const sendMessage = () => {
+    setMessage('');
+  }
+
+  const onPlusClicked = () => {
+    console.log('on plus clicked');
+  }
+
+  const onPress = () => {
+    if (message) {
+      sendMessage();
+    } else {
+      onPlusClicked();
+    }
+  }
+
   return (
-    <View style={styles.root}>
+    <KeyboardAvoidingView 
+      style={styles.root} 
+      behavior={Platform.OS === "ios" ? "padding" : "height"} 
+      keyboardVerticalOffset={100}  
+    >
       <View style={styles.inputContainer}>
       <SimpleLineIcons name="emotsmile" size={24} color="#595959" style={styles.icon} />
 
         <TextInput 
           style={styles.input}
+          value={message}
+          onChangeText={setMessage}
           placeholder="Message me!"
         />
 
         <Feather name="camera" size={24} color="#595959" />
         <Ionicons name="mic-outline" size={24} color="#595959" style={styles.icon} />
       </View>
-      <View style={styles.buttonContainer}>
-        <FontAwesome5 name="plus" size={24} color="white" style={styles.icon} />
-      </View>
-    </View>
+      <Pressable onPress={onPress} style={styles.buttonContainer}>
+        {message ? <Ionicons name="send" size={18} color="white" /> : <FontAwesome5 name="plus" size={24} color="white" style={styles.icon} />}
+      </Pressable>
+    </KeyboardAvoidingView>
   )
 }
 
