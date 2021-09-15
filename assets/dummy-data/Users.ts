@@ -9,7 +9,7 @@ export default [{
   imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/elon.png',
 }, {
   id: 'u3',
-  name: 'Jeff',
+  name: 'Susan',
   imageUri: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/jeff.jpeg',
 }, {
   id: 'u4',

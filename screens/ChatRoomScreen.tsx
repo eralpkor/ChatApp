@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, FlatList, SafeAreaView } from 'react-native';
 import { useRoute, useNavigation } from '@react-navigation/core';
-import { View } from '../components/Themed'; // take cares Dark Mode.
 import Message from '../components/Message';
 import chatRoomData from '../assets/dummy-data/Chats';
 import MessageInput from '../components/MessageInput';
@@ -31,4 +30,4 @@ const styles = StyleSheet.create({
     // backgroundColor: 'white',
     flex: 1,
   }
-})
+});
